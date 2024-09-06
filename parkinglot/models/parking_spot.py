@@ -1,5 +1,7 @@
 from models.vehicle_type import VehicleType
 from models.vehicle import Vehicle
+from threading import *
+l=Lock()
 
 class ParkingSpot:
     def __init__(self, spot_number : int) -> None:
@@ -14,13 +16,17 @@ class ParkingSpot:
         return self.parked_vehicle == None
     
     def park_vehicle(self, vehicle : Vehicle):
+        l.acquire()
         if self.is_available() and vehicle.type in self.vehicle_types:
             self.parked_vehicle = vehicle
         else:
             raise ValueError("Invalid vehicle type or spot is already occupied")
+        l.release()
     
     def unpark_vehicle(self):
+        l.acquire()
         self.parked_vehicle = None
+        l.release()
 
     def get_vehicle_type(self) -> VehicleType:
         if not self.is_available():
