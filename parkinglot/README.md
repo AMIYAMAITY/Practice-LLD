@@ -24,3 +24,12 @@
 <h3> Test the codebase </h3>
 
 ```python3 tests/parking_lot_test.py```
+
+<h3> References </h3>
+
+[link-1](https://github.com/ashishps1/awesome-low-level-design/blob/main/problems/parking-lot.md)
+
+[link-2](https://docs.python.org/3.0/tutorial/index.html)
+
+Thanks to [Ashish Pratap Singh](https://github.com/ashishps1)
+
